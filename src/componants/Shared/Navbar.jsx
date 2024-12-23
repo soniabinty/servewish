@@ -59,7 +59,16 @@ const Navbar = () => {
   <div className='flex gap-6'>
      
    <Link className='text-lg rounded-md text-white p-2 hover  hover:border'>Home</Link>
-   <Link className='text-lg rounded-md text-white p-2 hover hover:border'>Services</Link>
+   <Link to={'/services'} className='text-lg rounded-md text-white p-2 hover hover:border'>Services</Link>
+
+   {
+    user && user.email ? ( <Link to={'/addservice'} className='text-lg rounded-md text-white p-2 hover hover:border'>Add Service</Link>) :''
+   }
+
+
+{/* {
+    user && user.email ? ( <Link to={'/services'} className='text-lg rounded-md text-white p-2 hover hover:border'>Services</Link>) :''
+   } */}
   </div>
   
  </div>
