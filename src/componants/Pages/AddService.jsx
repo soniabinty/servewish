@@ -19,13 +19,13 @@ const AddService = () => {
     const description = form.description.value
     const image = form.image.value
 const email = user.email
-const addedDate = new Date().toISOString()
+const addedDate = new Date().toLocaleDateString();
   
    
     console.log(title , company , website , category , price , description , image ,email , addedDate)
 
     const newService = {
-      title , company , website , category , price , description , image , email  ,addedDate
+      title , company , website , category , price , description , image , email  , addedDate 
     };
 
     axios.post('http://localhost:5000/service', newService)
@@ -35,8 +35,9 @@ const addedDate = new Date().toISOString()
 
 
  
-  }
 
+
+}
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-gradient-to-l from-green-300 to-green-600 shadow-lg rounded-lg my-8">

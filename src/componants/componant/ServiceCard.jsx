@@ -7,9 +7,12 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
+
  
 
 const ServiceCard = ({service}) => {
+
 
 
   return (
@@ -27,7 +30,7 @@ const ServiceCard = ({service}) => {
          {service.title}
         </Typography>
         <Typography color="blue-gray" className="font-bold">
-          $95.00
+          ${service.price}
         </Typography>
       </div>
 
@@ -48,13 +51,14 @@ const ServiceCard = ({service}) => {
       </Typography>
     </CardBody>
     <CardFooter className="pt-0">
-      <Button
+    <Link to={`/services/${service._id}`}>
+    <Button 
         ripple={false}
         fullWidth={true}
         className="bg-green-900 text-white shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
       >
        See Details
-      </Button>
+      </Button></Link>
     </CardFooter>
   </Card>
   );
