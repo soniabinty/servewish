@@ -9,19 +9,22 @@ import {
 } from "@material-tailwind/react";
 import { HiMiniCalendarDateRange } from 'react-icons/hi2';
 import ReviewInput from '../componant/ReviewInput';
+import ReviewData from '../componant/ReviewData';
+
 
 
  
 
 const ServiceDetails = () => {
-
+  const [reviews, setReviews] = useState([]);
   const service = useLoaderData()
 
 
-
   return (
- <div className='w-11/12 mx-auto my-12'>
-     <Card className="w-full max-w-[48rem] md:flex-row">
+ <div className='w-11/12 mx-auto my-12 md:flex gap-12'>
+
+  <div>
+         <Card className="w-full max-w-[48rem] md:flex-row">
     <CardHeader
       shadow={false}
       floated={false}
@@ -79,9 +82,13 @@ const ServiceDetails = () => {
     </CardBody>
   </Card>
 
-<ReviewInput></ReviewInput>
+<ReviewInput ></ReviewInput>
 
-
+  </div>
+<div>
+  
+</div>
+<ReviewData serviceId={service._id}></ReviewData>
 
  </div>
   );

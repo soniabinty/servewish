@@ -10,8 +10,8 @@ const Navbar = () => {
   const {user ,logOut} = useContext(AuthContext)
   return (
   
-    <div className="navbar bg-green-900 px-3">
-    <div className="navbar-start">
+    <div className="navbar bg-green-900 px-3 flex justify-between">
+    <div className="">
     
     <div className='flex items-center'>
      <LiaServicestack className='text-3xl text-white' />
@@ -23,7 +23,7 @@ const Navbar = () => {
   
     </div>
 
-    <div className="navbar-end gap-4 flex ">
+    <div className=" gap-4 flex ">
 
     <div className="dropdown text-white">
         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,6 +65,15 @@ const Navbar = () => {
     user && user.email ? ( <Link to={'/addservice'} className='text-lg rounded-md text-white p-2 hover hover:border'>Add Service</Link>) :''
    }
 
+
+{
+    user && user.email ? ( <Link to={'/myservices'} className='text-lg rounded-md text-white p-2 hover hover:border'>My Services</Link>) :''
+   }
+
+
+{
+    user && user.email ? ( <Link to={'/myreviews'} className='text-lg rounded-md text-white p-2 hover hover:border'>My Reviews</Link>) :''
+   }
 
 {/* {
     user && user.email ? ( <Link to={'/services'} className='text-lg rounded-md text-white p-2 hover hover:border'>Services</Link>) :''

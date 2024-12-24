@@ -10,6 +10,7 @@ const ReviewInput = () => {
   const [reviewText, setReviewText] = useState(""); 
   const service = useLoaderData(); 
   const {user} = useContext(AuthContext)
+  
 
  
   const handleReviews = () => {
@@ -23,21 +24,29 @@ const ReviewInput = () => {
     serviceId: service._id, 
     rating,
     reviewText,
-    date: new Date().toLocaleString(), 
+    date: new Date().toLocaleDateString(), 
     name : user.displayName,
-    photo: user.photoURL
+    photo:user.photoURL,
+    email : user.email
   }
-
 
   axios.post('http://localhost:5000/review', newReview)
   .then(data =>{
+   
     console.log(data.data)
-  })
-  
-    setRating(0);
+
+     setRating(0);
     setReviewText("");
     alert("Review submitted successfully!");
+
+
+ 
+  })
+   
+
+
   };
+
 
   return (
     <div className="max-w-[48rem] p-6 my-5">
