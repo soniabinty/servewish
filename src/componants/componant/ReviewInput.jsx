@@ -8,6 +8,7 @@ import axios from "axios";
 const ReviewInput = () => {
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState(""); 
+
   const service = useLoaderData(); 
   const {user} = useContext(AuthContext)
   
@@ -27,7 +28,8 @@ const ReviewInput = () => {
     date: new Date().toLocaleDateString(), 
     name : user.displayName,
     photo:user.photoURL,
-    email : user.email
+    email : user.email,
+    title: service.title
   }
 
   axios.post('http://localhost:5000/review', newReview)

@@ -47,7 +47,7 @@ const ServiceCard = ({service}) => {
         color="gray"
         className="font-normal opacity-75"
       >
-       {service.description}
+       {service.description?.substring(0, 100)}.....
       </Typography>
     </CardBody>
     <CardFooter className="pt-0">

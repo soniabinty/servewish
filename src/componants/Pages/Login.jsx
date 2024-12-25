@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
 
-  const {  signIn ,setUser ,googleSignIn } = useContext(AuthContext)
+  const { user, signIn ,setUser ,googleSignIn } = useContext(AuthContext)
   const navigate = useNavigate()
 
 
@@ -17,6 +17,9 @@ const Login = () => {
    
     const email = form.email.value
     const password = form.password.value
+
+
+   
    
     console.log(email ,password)
 

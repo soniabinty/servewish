@@ -4,6 +4,7 @@ import { LiaServicestack } from 'react-icons/lia';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../provider/AuthContext';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -33,6 +34,18 @@ const Register = () => {
     const password = form.password.value
     const photo = form.photo.value
     console.log(name ,photo ,email ,password)
+
+    const newUser = {email , name}
+      console.log(newUser)
+    axios.post('http://localhost:5000/users', newUser)
+    .then(data =>{
+      console.log(data.data)
+
+    
+    })
+
+
+
 
     createUser(email,password)
   .then((result) =>{

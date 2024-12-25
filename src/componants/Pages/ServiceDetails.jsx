@@ -16,9 +16,9 @@ import ReviewData from '../componant/ReviewData';
  
 
 const ServiceDetails = () => {
-  const [reviews, setReviews] = useState([]);
+ 
   const service = useLoaderData()
-
+ 
 
   return (
  <div className='w-11/12 mx-auto my-12 md:flex gap-12'>
@@ -82,7 +82,7 @@ const ServiceDetails = () => {
     </CardBody>
   </Card>
 
-<ReviewInput ></ReviewInput>
+<ReviewInput serviceId={service._id}></ReviewInput>
 
   </div>
 <div>
