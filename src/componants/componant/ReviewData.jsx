@@ -10,7 +10,6 @@ const ReviewData = ({serviceId}) => {
 
 
 
-
   useEffect(() => {
     if (serviceId) {
 
