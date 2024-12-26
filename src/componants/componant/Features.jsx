@@ -23,7 +23,7 @@ const Features = () => {
 
 
   return (
-    <div className='md:grid grid-cols-3 gap-10 p-3'>
+    <div className='md:grid grid-cols-3 gap-10 p-3n md:px-6'>
       {
         features.map((feature =>(
           <div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg my-6 ">
