@@ -10,7 +10,7 @@ const Navbar = () => {
   const {user ,logOut} = useContext(AuthContext)
   return (
   
-    <div className="navbar bg-green-900 px-3 flex justify-between">
+    <div className="navbar bg-green-900 px-3 flex justify-between w-full mx-auto">
     <div className="">
     
     <div className='flex items-center'>
