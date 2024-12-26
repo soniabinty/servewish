@@ -5,20 +5,20 @@ import food from '../../assets/service/food.jpg'
 import { motion } from "motion/react"
 const FindService = () => {
   return (
-    <div className="hero  min-h-screen md:pr-12 ">
-  <div className="hero-content flex-col lg:flex-row grid grid-cols-2 gap-6">
+    <div className="hero flex-col my-4 md:my-8  md:pr-12 ">
+  <div className="hero-content flex-col lg:flex-row md:grid grid-cols-2 md:gap-6">
 
-    <div className='col-span-1 flex items-center pr-12 text-start'>
+    <div className='col-span-1 flex items-center md:pr-12  '>
 
-      <div className='space-y-4 '>
+      <div className='md:space-y-4 '>
           <motion.img
-     className='w-56 rounded-lg'
+     className='w-56 rounded-lg mr-6  md:ml-12'
        animate={{
-        x : [80, 180 ,80] }}
+        x : [80, 30,80] }}
         transition= {{duration: 10 , delay:2 , repeat: Infinity } }
       src={fashion} />  
  <motion.img
-     className='w-56 rounded-lg'
+     className='w-56 rounded-lg md:flex hidden '
        animate={{
         x : [100, 150 ,100] }}
         transition= {{duration: 10 , delay:4 , repeat: Infinity } }
@@ -27,9 +27,9 @@ const FindService = () => {
 
      <div className='py-5'>
      <motion.img
-     className='w-56 rounded-lg'
+     className='w-56 hidden md:flex rounded-lg'
        animate={{
-        x : [100, 150 ,100] }}
+        x : [50, 80 ,50] }}
         transition= {{duration: 10 , delay:2 , repeat: Infinity } }
       src={food} />  
    
@@ -42,7 +42,7 @@ const FindService = () => {
       <p className="py-6 ">
       Services contain all the service features and offers you need to  and customize an entire service. No VAT required.
       </p>
-      <button className="btn bg-green-900 text-white">Browse Services</button>
+      <button className="btn hover:bg-green-900 bg-green-900 text-white">Browse Services</button>
     </div>
   </div>
 </div>

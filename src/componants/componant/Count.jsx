@@ -13,18 +13,18 @@ const Count = () => {
 
    
     axios
-      .get('http://localhost:5000/review')
+      .get('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/review')
       .then((response) => {
         setReviews(response.data);
       })
       axios
-      .get('http://localhost:5000/users')
+      .get('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/users')
       .then((response) => {
         setUsers(response.data);
       })
 
       axios
-      .get('http://localhost:5000/service')
+      .get('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/service')
       .then((response) => {
         setServices(response.data);
       })
@@ -33,7 +33,7 @@ const Count = () => {
 
 
   return (
-    <div className='md:flex justify-between  bg-green-900 text-white  px-[160px] py-10 my-12 rounded-lg'>
+    <div className='md:flex justify-between mx-4  bg-green-900 text-white  md:px-[160px] py-10 my-12 rounded-lg'>
 
 <div className='text-center  space-y-2'>
 

@@ -4,7 +4,10 @@ import Marquee from "react-fast-marquee";
 import { FcAutomotive, FcCloseUpMode, FcHome, FcPlus, FcServices, FcShipped } from 'react-icons/fc';
 const Partner = () => {
   return (
-    <Marquee>
+<div>
+<h1 className='text-center md:text-4xl font-bold text-xl text-green-900 md:mb-6 my-8 mb-2'>Meet Our Partners</h1>
+     
+<Marquee>
   <div className='flex gap-8'>
       <div class="w-40 text-center">
   <FaAmazon className='mx-auto text-3xl' />
@@ -104,6 +107,7 @@ const Partner = () => {
 
 
 </Marquee>
+</div>
  
   );
 };

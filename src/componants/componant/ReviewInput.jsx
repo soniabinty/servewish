@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import AuthContext from "../provider/AuthContext";
 import axios from "axios";
 
-const ReviewInput = () => {
+const ReviewInput = ({reviews , setReviews}) => {
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState(""); 
 
@@ -32,11 +32,14 @@ const ReviewInput = () => {
     title: service.title
   }
 
-  axios.post('http://localhost:5000/review', newReview)
+  axios.post('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/review', newReview)
   .then(data =>{
    
     console.log(data.data)
+setReviews(prev =>{
+  return [...prev , newReview]
 
+})
      setRating(0);
     setReviewText("");
     alert("Review submitted successfully!");
@@ -51,7 +54,7 @@ const ReviewInput = () => {
 
 
   return (
-    <div className="max-w-[48rem] p-6 my-5">
+    <div className="max-w-[48rem] p-6 my-5 bg-red-100">
       <div className="mx-auto p-12 rounded-md mt-5">
         <h1 className="text-green-900 text-4xl mb-3">{service.title}</h1>
         <h2 className="mb-2">Give Your Review For Our Service</h2>
@@ -64,7 +67,7 @@ const ReviewInput = () => {
 
         <div className="relative w-[32rem] mt-3 space-y-5">
           {/* Textarea for review */}
-          <div className="relative w-full min-w-[200px]">
+          <div className="relative w-full md:min-w-[200px]">
             <textarea
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)} 

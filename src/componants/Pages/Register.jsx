@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../provider/AuthContext';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
 
@@ -45,6 +46,24 @@ const Register = () => {
     })
 
 
+    const passwordErrors = [];
+    if (!/[A-Z]/.test(password)) {
+      passwordErrors.push("Password must contain at least one uppercase letter.");
+    }
+    if (!/[a-z]/.test(password)) {
+      passwordErrors.push("Password must contain at least one lowercase letter.");
+    }
+    if (password.length < 6) {
+      passwordErrors.push("Password must be at least 6 characters long.");
+    }
+  
+    if (passwordErrors.length > 0) {
+    
+      toast.error(passwordErrors.join(" "));
+      return 
+  
+    }
+  
 
 
     createUser(email,password)
@@ -72,6 +91,9 @@ updateUserProfile({ displayName: name, photoURL: photo })
   }
   return (
     <div className="hero  min-h-screen">
+      <Helmet>
+        <title>ServeWISH-register</title>
+      </Helmet>
     <div className="hero-content flex-col text-center ">
       <div className="text-center flex flex-col justify-center mb-4 ">
          <div className='flex items-center text-center text-green-900 mx-auto'>
@@ -139,7 +161,7 @@ updateUserProfile({ displayName: name, photoURL: photo })
           
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary">Register</button>
           </div>
 
 

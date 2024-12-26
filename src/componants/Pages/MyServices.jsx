@@ -5,6 +5,7 @@ import { FaEdit } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);
@@ -14,8 +15,10 @@ const MyServices = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
+
+    
     axios
-      .get(`http://localhost:5000/services?email=${user.email}`)
+      .get(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/services?email=${user.email}`)
       .then((response) => {
         setServices(response.data);
       });
@@ -33,7 +36,7 @@ const MyServices = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/service/${id}`)
+          .delete(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/service/${id}`)
           .then((data) => {
             if (data.data.deletedCount > 0) {
               Swal.fire({
@@ -69,7 +72,7 @@ description: event.target.description.value,
     };
 
     axios
-      .put(`http://localhost:5000/service/${selectedService._id}`, updatedService)
+      .put(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/service/${selectedService._id}`, updatedService)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           toast.success("Service updated successfully!");
@@ -91,7 +94,9 @@ description: event.target.description.value,
   return (
     <div className='max-w-7xl mx-auto my-12'>
 
-
+<Helmet>
+        <title>ServeWISH-myservice</title>
+      </Helmet>
 
 <div className="mb-4">
         <input

@@ -43,7 +43,7 @@ const Banner = () => {
            Find your needed through our service
           </Typography>
           <Typography
-            className="mt-2 mb-6 !text-base font-normal text-white"
+            className="mt-2 mb-6 !text-base text-center font-normal text-white"
           >
           Explore and find trusted service providers, apps, and templates to help your company grow better.
           </Typography>
@@ -73,7 +73,7 @@ const Banner = () => {
           >
          You all are able to be find out your needed service to use. Because we have 100+ services and 17+ collaboration with other company.
           </Typography>
-          <div className='col-span-1 space-y-8 '>
+          <div className='col-span-1 space-y-8 hidden md:block'>
 <div className='flex gap-12'>
   
 <div className='text-center  p-4 w-[120px] rounded-lg bg-white'>
@@ -135,7 +135,7 @@ const Banner = () => {
           >
         You can search our repution by reviews, customers satisfiction and you also able to add your services details for your business purpose.
           </Typography>
-          <div className='md:flex  text-black gap-12 items-center '>
+          <div className='md:flex hidden  text-black gap-12 items-center '>
           <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-80  p-6">
   <div class="flex items-center mb-4">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-slate-600">

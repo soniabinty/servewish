@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ServiceCard from '../componant/ServiceCard';
+import { Helmet } from 'react-helmet';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -31,6 +32,9 @@ const Services = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
+      <Helmet>
+        <title>ServeWISH-services</title>
+      </Helmet>
       {/* Search Input */}
       <div className="mb-4">
         <input

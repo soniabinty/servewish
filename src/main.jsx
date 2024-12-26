@@ -13,6 +13,7 @@ createRoot(document.getElementById('root')).render(
      <StrictMode>
      <ThemeProvider>
      <RouterProvider router={router} />
+     <HelmetProvider></HelmetProvider>
     </ThemeProvider>
   </StrictMode>, 
   </AuthProvider>

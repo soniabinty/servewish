@@ -5,8 +5,8 @@ import ReviewBox from './ReviewBox';
 
 
 
-const ReviewData = ({serviceId}) => {
-  const [reviews,  setReviews] = useState([]);
+const ReviewData = ({serviceId , reviews , setReviews}) => {
+
 
 
 
@@ -15,7 +15,7 @@ const ReviewData = ({serviceId}) => {
 
      
       axios
-        .get(`http://localhost:5000/review/${serviceId}`)
+        .get(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/review/${serviceId}`)
         .then((response) => {
           setReviews(response.data);
         })
@@ -28,11 +28,11 @@ const ReviewData = ({serviceId}) => {
   return (
     <div className=''>
 
-      Total Reviews: {reviews.length}
+      Total Reviews: {reviews?.length}
 
   
       {
-    reviews.map((review) =>(
+    reviews?.map((review) =>(
       <ReviewBox review={review} key={review._id}></ReviewBox>
     ))
   }
