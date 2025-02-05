@@ -1,7 +1,7 @@
 
 # ServeWISH
 
-![Taskperks Banner](https://i.ibb.co.com/j93R8XRW/Screenshot-7.png)
+![Servewish Banner](https://i.ibb.co.com/j93R8XRW/Screenshot-7.png)
 
 **ServeWISH** is a dynamic service portal that connects users with various service providers. It allows users to explore, review, and choose services based on their preferences, making service discovery seamless and efficient.
 
