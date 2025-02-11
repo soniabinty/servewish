@@ -3,7 +3,7 @@ import AuthContext from '../provider/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
-import { Helmet } from 'react-helmet';
+
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +14,7 @@ const MyReviews = () => {
   useEffect(() => {
    
     axios
-      .get(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/reviews?email=${user.email}`)
+      .get(`https://servewish-server.vercel.app/reviews?email=${user.email}`)
       .then((response) => setReviews(response.data))
       .catch(() => toast.error('Failed to load reviews'));
   }, [user.email]);
@@ -34,7 +34,7 @@ const MyReviews = () => {
     console.log('Updating review:', updatedReview);  // Debug log
     
     axios
-      .put(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/review/${selectedReview._id}`, updatedReview)
+      .put(`https://servewish-server.vercel.app/review/${selectedReview._id}`, updatedReview)
       .then((response) => {
         console.log('Update response:', response);  // Debug log
         if (response.data.modifiedCount > 0) {
@@ -69,7 +69,7 @@ const MyReviews = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/review/${id}`)
+          .delete(`https://servewish-server.vercel.app/review/${id}`)
           .then((data) => {
             console.log('Delete response:', data);  // Debug log
             if (data.data.deletedCount > 0) {
@@ -89,9 +89,7 @@ const MyReviews = () => {
 
   return (
     <div className="max-w-7xl mx-auto my-12">
-      <Helmet>
-        <title>ServeWISH-myreviews</title>
-      </Helmet>
+      
       <h1 className="text-2xl font-bold mb-6 text-center">My Reviews</h1>
       <div className="flex flex-col gap-4">
         {reviews.map((review) => (

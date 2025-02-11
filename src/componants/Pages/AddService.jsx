@@ -3,7 +3,8 @@ import AuthContext from "../provider/AuthContext";
 import { useContext } from "react";
 import { LiaServicestack } from "react-icons/lia";
 import toast from "react-hot-toast";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet-async";
+
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
@@ -47,7 +48,7 @@ const AddService = () => {
     };
 
     axios
-      .post("https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/service", newService)
+      .post("https://servewish-server.vercel.app/service", newService)
       .then((data) => {
         console.log(data.data);
         form.reset(); 
@@ -60,9 +61,9 @@ const AddService = () => {
 
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>ServeWISH-add service</title>
-      </Helmet>
+      </Helmet> */}
       <div className="text-center flex flex-col justify-center mb-4">
         <div className="flex items-center text-center text-green-900 mx-auto">
           <LiaServicestack className="text-2xl" />

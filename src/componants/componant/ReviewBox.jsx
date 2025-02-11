@@ -7,7 +7,7 @@ import React from 'react';
 const ReviewBox = ({review}) => {
   return (
     <div class="flex w-full p-4 max-w-lg flex-col rounded-lg bg-white shadow-sm border border-slate-200 my-6">
-    <div class="flex items-center gap-4 text-slate-800 min-w-[380px] rounded-full">
+    <div class="flex items-center gap-4 text-slate-800 rounded-full">
     <img
                 src={review.photo}
                 alt={review.name}

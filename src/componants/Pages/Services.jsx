@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ServiceCard from '../componant/ServiceCard';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet-async';
+
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -10,7 +11,7 @@ const Services = () => {
 
   useEffect(() => {
     const fetchServices = async () => {
-      const response = await axios.get('http://localhost:5000/services/search', {
+      const response = await axios.get('https://servewish-server.vercel.app/services/search', {
         params: {
           query: searchQuery,
           category: selectedCategory,
@@ -31,10 +32,10 @@ const Services = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <Helmet>
+    <div className="max-w-7xl mt-8 mx-auto">
+      {/* <Helmet>
         <title>ServeWISH-services</title>
-      </Helmet>
+      </Helmet> */}
       {/* Search Input */}
       <div className="mb-4">
         <input
@@ -55,11 +56,16 @@ const Services = () => {
           onChange={handleCategoryChange} 
           className="border border-gray-300 p-2 rounded-md w-full md:w-1/3"
         >
-          <option value="All">All Categories</option>
-          <option value="Food">Food</option>
-          <option value="Transport">Transport</option>
-          <option value="House Build Up">House Build Up</option>
-          <option value="IT">IT</option>
+        
+                <option value="" disabled selected>
+                  Select a Category
+                </option>
+                <option value="Restaurants">Restaurants</option>
+                <option value="Transports">Transports</option>
+                <option value="Home Services">Home Services</option>
+                <option value="Medical">Medical</option>
+                <option value="Beauty and Spa">Beauty and Spa</option>
+             
         </select>
       </div>
 

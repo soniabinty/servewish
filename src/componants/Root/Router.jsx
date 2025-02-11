@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         path:"/services",
         element:
         <Services></Services>,
-        loader: () => fetch('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/service')
+        loader: () => fetch('https://servewish-server.vercel.app/service')
       
       },
 
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         path:"/services/:id",
         element:<ServiceDetails></ServiceDetails>,
         loader: ({params}) => 
-          fetch(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/service/${params.id}`)
+          fetch(`https://servewish-server.vercel.app/service/${params.id}`)
       },
 
       {

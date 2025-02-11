@@ -26,13 +26,13 @@ const AuthProvider = ({children}) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .post("https://servewish-server.vercel.app/jwt", user, { withCredentials: true })
           .then((res) => console.log(res.data));
       }
       else {
         axios
           .post(
-            "http://localhost:5000/logout",
+            "https://servewish-server.vercel.app/logout",
             {},
             {
               withCredentials: true,

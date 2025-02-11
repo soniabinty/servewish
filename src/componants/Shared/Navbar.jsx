@@ -7,11 +7,11 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   return (
-    <div className="navbar bg-green-900 px-3 flex justify-between w-full mx-auto">
+    <div className="navbar fixed z-10  bg-black bg-opacity-60 text-white px-8 flex justify-between w-full mx-auto">
       {/* Logo Section */}
-      <div className="flex items-center">
-        <LiaServicestack className="text-3xl text-white" />
-        <Link to="/" className="logo-name text-white text-2xl p-0 ml-2">
+      <div className="flex text-[#fb110d] items-center">
+        <LiaServicestack className="text-3xl " />
+        <Link to="/" className="logo-name  text-2xl p-0 ml-2">
           ServeWISH
         </Link>
       </div>
@@ -129,12 +129,12 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden lg:flex gap-6">
-          <Link to="/" className="text-lg text-white p-2 hover:underline">
+          <Link to="/" className="text-lg  p-2 hover:underline">
             Home
           </Link>
           <Link
             to="/services"
-            className="text-lg text-white p-2 hover:underline"
+            className="text-lg  p-2 hover:underline"
           >
             Services
           </Link>
@@ -142,19 +142,19 @@ const Navbar = () => {
             <>
               <Link
                 to="/addservice"
-                className="text-lg text-white p-2 hover:underline"
+                className="text-lg  p-2 hover:underline"
               >
                 Add Service
               </Link>
               <Link
                 to="/myservices"
-                className="text-lg text-white p-2 hover:underline"
+                className="text-lg  p-2 hover:underline"
               >
                 My Services
               </Link>
               <Link
                 to="/myreviews"
-                className="text-lg text-white p-2 hover:underline"
+                className="text-lg  p-2 hover:underline"
               >
                 My Reviews
               </Link>
@@ -180,7 +180,7 @@ const Navbar = () => {
         {user?.email ? (
           <button
             onClick={logOut}
-            className="hidden lg:block text-lg bg-white rounded-md text-gray-400 px-4 py-2"
+            className="hidden lg:block text-lg bg-[#fb110d] rounded-md text-white px-4 py-2"
           >
             LogOut
           </button>
@@ -194,7 +194,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/login"
-              className="text-lg bg-white rounded-md text-gray-400 px-4 py-2"
+              className="text-lg bg-[#fb110d] rounded-md text-white px-4 py-2"
             >
               LogIn
             </Link>

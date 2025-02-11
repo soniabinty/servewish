@@ -13,18 +13,18 @@ const Count = () => {
 
    
     axios
-      .get('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/review')
+      .get('https://servewish-server.vercel.app/review')
       .then((response) => {
         setReviews(response.data);
       })
       axios
-      .get('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/users')
+      .get('https://servewish-server.vercel.app/users')
       .then((response) => {
         setUsers(response.data);
       })
 
       axios
-      .get('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/service')
+      .get('https://servewish-server.vercel.app/service')
       .then((response) => {
         setServices(response.data);
       })

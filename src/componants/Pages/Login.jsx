@@ -4,7 +4,8 @@ import { LiaServicestack } from 'react-icons/lia';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../provider/AuthContext';
 import toast from 'react-hot-toast';
-import { Helmet } from 'react-helmet';
+
+
 
 const Login = () => {
 
@@ -51,9 +52,7 @@ const Login = () => {
   }
   return (
     <div className="hero  min-h-screen">
-      <Helmet>
-        <title>ServeWISH-login</title>
-      </Helmet>
+      
     <div className="hero-content flex-col text-center ">
       <div className="text-center flex flex-col justify-center mb-4 ">
          <div className='flex items-center text-center text-green-900 mx-auto'>

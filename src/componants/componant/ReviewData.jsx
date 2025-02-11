@@ -15,13 +15,10 @@ const ReviewData = ({serviceId , reviews , setReviews}) => {
 
      
       axios
-        .get(`https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/review/${serviceId}`)
+        .get(`https://servewish-server.vercel.app/review/${serviceId}`)
         .then((response) => {
           setReviews(response.data);
-        })
-
-    
-       
+        })  
     }
   }, [serviceId]);
 

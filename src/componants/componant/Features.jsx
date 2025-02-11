@@ -11,7 +11,7 @@ const Features = () => {
   useEffect(() => {
    
     axios
-  .get('https://servewish-server-c8u6iz51g-bintys-projects.vercel.app/features')
+  .get('https://servewish-server.vercel.app/features')
   .then((response) => {
     setFeatures(response.data);
   })
