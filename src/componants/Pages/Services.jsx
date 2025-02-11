@@ -1,48 +1,62 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ServiceCard from '../componant/ServiceCard';
-// import { Helmet } from 'react-helmet-async';
-
 
 const Services = () => {
   const [services, setServices] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
+   
+    const queryParams = new URLSearchParams(location.search);
+    const categoryFromURL = queryParams.get('category') || 'All';
+
+    setSelectedCategory(categoryFromURL);
+
     const fetchServices = async () => {
-      const response = await axios.get('https://servewish-server.vercel.app/services/search', {
-        params: {
-          query: searchQuery,
-          category: selectedCategory,
-        },
-      });
-      setServices(response.data);
+      try {
+        const response = await axios.get('https://servewish-server.vercel.app/services/search', {
+          params: {
+            query: searchQuery,
+            category: categoryFromURL !== 'All' ? categoryFromURL : '',
+          },
+        });
+
+        setServices(response.data);
+      } catch (error) {
+        console.error('Error fetching services:', error);
+      }
     };
 
     fetchServices();
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, location.search]); 
 
+  // Handle search input change
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value); 
+    setSearchQuery(e.target.value);
   };
 
+  // Handle category filter change
   const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value); 
+    const newCategory = e.target.value;
+    setSelectedCategory(newCategory);
+    navigate(`/services?category=${encodeURIComponent(newCategory)}`); // Update URL
   };
 
   return (
-    <div className="max-w-7xl mt-8 mx-auto">
-      {/* <Helmet>
-        <title>ServeWISH-services</title>
-      </Helmet> */}
+    <div className="max-w-7xl py-12 mx-auto">
       {/* Search Input */}
       <div className="mb-4">
         <input
           type="text"
           placeholder="Search by title, category, or company"
           value={searchQuery}
-          onChange={handleSearchChange} 
+          onChange={handleSearchChange}
           className="border border-gray-300 p-2 rounded-md w-full md:w-1/3"
         />
       </div>
@@ -53,19 +67,15 @@ const Services = () => {
         <select
           id="categoryFilter"
           value={selectedCategory}
-          onChange={handleCategoryChange} 
+          onChange={handleCategoryChange}
           className="border border-gray-300 p-2 rounded-md w-full md:w-1/3"
         >
-        
-                <option value="" disabled selected>
-                  Select a Category
-                </option>
-                <option value="Restaurants">Restaurants</option>
-                <option value="Transports">Transports</option>
-                <option value="Home Services">Home Services</option>
-                <option value="Medical">Medical</option>
-                <option value="Beauty and Spa">Beauty and Spa</option>
-             
+          <option value="All">All Categories</option>
+          <option value="Restaurants">Restaurants</option>
+          <option value="Transports">Transports</option>
+          <option value="Home Services">Home Services</option>
+          <option value="Medical">Medical</option>
+          <option value="Beauty and Spa">Beauty and Spa</option>
         </select>
       </div>
 

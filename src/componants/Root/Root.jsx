@@ -7,9 +7,9 @@ import { Toaster } from 'react-hot-toast';
 const Root = () => {
   return (
     <div className=''>
-     <nav className=''>
+    
      <Navbar></Navbar>
-     </nav>
+    
       <Outlet></Outlet>
       <Footer></Footer>
       <Toaster></Toaster>

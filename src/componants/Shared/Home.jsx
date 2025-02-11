@@ -5,6 +5,7 @@ import FindService from '../componant/FindService';
 import FindProvider from '../componant/FindProvider';
 import Banner from '../componant/Banner';
 import Partner from '../componant/Partner.JSX';
+import Category from '../componant/Category';
 
 
 
@@ -13,6 +14,7 @@ const Home = () => {
     <div >
      <Banner></Banner>
      <Features></Features>
+     <Category></Category>
     <FindService></FindService>
     <FindProvider></FindProvider>
     <Partner></Partner>
