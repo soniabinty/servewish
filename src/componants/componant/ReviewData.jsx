@@ -23,7 +23,7 @@ const ReviewData = ({serviceId , reviews , setReviews}) => {
   }, [serviceId]);
 
   return (
-    <div className=''>
+    <div className='my-10'>
 
       Total Reviews: {reviews?.length}
 

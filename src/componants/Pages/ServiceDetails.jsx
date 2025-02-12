@@ -22,11 +22,11 @@ const ServiceDetails = () => {
    const [reviews,  setReviews] = useState([]);
 
   return (
- <div className='w-11/12 bg-pink mx-auto my-12 md:flex md:gap-12'>
+ <div className='w-11/12 bg-pink mx-auto py-12 md:flex md:gap-12'>
  
 
   <div>
-         <Card className="w-full max-w-[48rem] md:flex-row">
+         <Card className="w-full my-12 max-w-[48rem] md:flex-row">
     <CardHeader
       shadow={false}
       floated={false}
@@ -42,7 +42,7 @@ const ServiceDetails = () => {
       <Typography variant="h6" color="gray" className="mb-4 uppercase">
        {service.company} 
       </Typography>
-      <Typography variant="h4"  className="mb-2 text-green-900">
+      <Typography variant="h4"  className="mb-2 text-[#fb110d]">
        {service.title}
       </Typography>
 

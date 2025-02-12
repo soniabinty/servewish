@@ -92,21 +92,22 @@ description: event.target.description.value,
     service.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
   return (
-    <div className='max-w-7xl mx-auto my-12'>
+    <div className='max-w-7xl mx-auto py-12'>
 
-<div className="mb-4">
+<div className="my-8">
         <input
           type="text"
           placeholder="Search by name"
+          
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="input input-bordered w-full max-w-md"
+          className="input input-bordered border-[#fb110d] w-full max-w-md"
         />
       </div>
       <div className="overflow-x-auto rounded-none">
         <table className="table table-zebra">
           <thead>
-            <tr className='text-green-900'>
+            <tr className='text-[#fb110d]'>
               <th></th>
               <th className='md:text-xl'>Name</th>
               <th className='md:text-xl'>Category</th>
@@ -116,14 +117,14 @@ description: event.target.description.value,
           </thead>
           <tbody>
           {filteredServices.map((serv, idx) => (
-    <tr className='bg-green-400' key={serv._id}>
+    <tr className='bg-yellow-100' key={serv._id}>
       <th className='text-md'>{1 + idx}</th>
       <td className='text-md'>{serv.title}</td>
       <td className='text-md'>{serv.category}</td>
       <td className='text-md'>${serv.price}</td>
       <td className='flex items-center gap-4 text-center'>
         <button onClick={() => openModal(serv)}>
-          <FaEdit className='text-2xl text-green-900' />
+          <FaEdit className='text-2xl text-[#fb110d]' />
         </button>
         <button onClick={() => handleDelete(serv._id)}>
           <MdDeleteForever className='text-2xl text-red-900' />

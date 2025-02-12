@@ -98,7 +98,7 @@ const MyReviews = () => {
 
 
 
-<div key={review._id} class="flex flex-col bg-green-300 shadow-sm border border-slate-200  my-6 w-10/12  mx-auto">
+<div key={review._id} class="flex flex-col bg-green-300 shadow-sm border border-slate-200  py-6 w-10/12  mx-auto">
  
   <div class="p-2 text-center mt-4">
     <h4 class="mb-1 text-2xl font-semibold text-slate-800 text-green-900">

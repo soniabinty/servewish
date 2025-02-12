@@ -56,7 +56,7 @@ setReviews(prev =>{
   return (
     <div className=" p-6 my-5 ">
       <div className="mx-auto rounded-md mt-5">
-        <h1 className="text-green-900 text-4xl mb-3">{service.title}</h1>
+        <h1 className="text-[#fb110d] text-4xl mb-3">{service.title}</h1>
         <h2 className="mb-2">Give Your Review For Our Service</h2>
 
         <Rating
@@ -84,7 +84,7 @@ setReviews(prev =>{
           <div className="flex w-full justify-between py-1.5">
             <button
               onClick={handleReviews} 
-              className="select-none rounded-md bg-green-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="select-none rounded-md bg-[#fb110d] py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
             >
               Post Review
