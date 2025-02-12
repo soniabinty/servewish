@@ -3,7 +3,7 @@ import { LiaServicestack } from 'react-icons/lia';
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center bg-gray-800 text-primary-content p-10">
+    <footer className="footer footer-center  bg-gray-800 text-primary-content p-10">
     <aside>
     <div className='flex items-center'>
     <LiaServicestack className='text-3xl ' />
@@ -18,10 +18,10 @@ const Footer = () => {
       </p>
 
       <nav className="grid grid-flow-col gap-4">
-    <a className="link link-hover">About us</a>
+    <a className="link link-hover">Services</a>
+    <a className="link link-hover">Reviews</a>
+    <a className="link link-hover">Add Service</a>
     <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
   </nav>
 
   <nav>

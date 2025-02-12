@@ -7,9 +7,9 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   return (
-    <div className="navbar fixed z-10  bg-black bg-opacity-60 text-white px-8 flex justify-between w-full mx-auto">
+    <div className="navbar fixed z-10   bg-[#fb110d] text-white px-8 flex justify-between w-full mx-auto">
       {/* Logo Section */}
-      <div className="flex text-[#fb110d] items-center">
+      <div className="flex text-white items-center">
         <LiaServicestack className="text-3xl " />
         <Link to="/" className="logo-name  text-2xl p-0 ml-2">
           ServeWISH
@@ -180,7 +180,7 @@ const Navbar = () => {
         {user?.email ? (
           <button
             onClick={logOut}
-            className="hidden lg:block text-lg bg-[#fb110d] rounded-md text-white px-4 py-2"
+            className="hidden lg:block text-lg bg-white rounded-md text-gray-700 px-4 py-2"
           >
             LogOut
           </button>

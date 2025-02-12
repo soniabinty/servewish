@@ -84,7 +84,7 @@ const ServiceDetails = () => {
     </CardBody>
   </Card>
 
-<ReviewInput reviews={reviews} setReviews={setReviews}  serviceId={service._id}></ReviewInput>
+<ReviewInput reviews={reviews} title={service.title} setReviews={setReviews}  serviceId={service._id}></ReviewInput>
 
   </div>
 <div>

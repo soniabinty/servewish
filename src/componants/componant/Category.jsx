@@ -24,7 +24,7 @@ const Category = () => {
 
   return (
 
-    <div className='bg-yellow-100 p-12 text-center'>
+    <div className='bg-yellow-100 p-12 text-center my-10'>
       <h2 className='text-4xl font-bold text-[#fb110d] mb-10 '>Explore Services By Category</h2>
      <div className="grid grid-cols-5  gap-12">
       {categories.map((category, index) => (
