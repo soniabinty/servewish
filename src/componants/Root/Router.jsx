@@ -9,6 +9,7 @@ import Services from "../Pages/Services";
 import ServiceDetails from '../Pages/ServiceDetails'
 import MyServices from "../Pages/MyServices";
 import MyReviews from "../Pages/MyReviews";
+import Error from "../Shared/Error";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
 
     ]
   },
+  {
+    path: '*',
+    element: <Error></Error>
+  }
 
 ]);
 export default router

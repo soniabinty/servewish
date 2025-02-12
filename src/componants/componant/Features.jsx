@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Loading from '../../componants/Shared/Loading'
 
 
 const Features = () => {
 
-
+  const [loading , setLoading] = useState(true)
   const [features , setFeatures] = useState([])
   useEffect(() => {
    
@@ -14,13 +14,16 @@ const Features = () => {
   .get('https://servewish-server.vercel.app/features')
   .then((response) => {
     setFeatures(response.data);
+    setLoading(false)
   })
  
    
  
 }, []);
 
-
+if(loading) {
+  return <Loading></Loading>
+}
 
   return (
    <div>

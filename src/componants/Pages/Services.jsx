@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ServiceCard from '../componant/ServiceCard';
+import Loading from '../../componants/Shared/Loading'
 
 const Services = () => {
   const [services, setServices] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [loading , setLoading] = useState(true)
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -28,6 +30,7 @@ const Services = () => {
         });
 
         setServices(response.data);
+        setLoading(false)
       } catch (error) {
         console.error('Error fetching services:', error);
       }
@@ -47,6 +50,9 @@ const Services = () => {
     setSelectedCategory(newCategory);
     navigate(`/services?category=${encodeURIComponent(newCategory)}`); // Update URL
   };
+  if(loading) {
+    return <Loading></Loading>
+  }
 
   return (
     <div className="max-w-7xl py-12 mx-auto">

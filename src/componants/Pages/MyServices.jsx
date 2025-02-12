@@ -5,7 +5,7 @@ import { FaEdit } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
-
+import Loading from '../../componants/Shared/Loading'
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +13,7 @@ const MyServices = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [loading , setLoading] = useState(true)
 
   useEffect(() => {
 
@@ -21,6 +22,7 @@ const MyServices = () => {
       .get(`https://servewish-server.vercel.app/services?email=${user.email}`)
       .then((response) => {
         setServices(response.data);
+        setLoading(false)
       });
   }, [user.email]);
 
@@ -91,6 +93,10 @@ description: event.target.description.value,
   const filteredServices = servs.filter((service) =>
     service.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  if(loading) {
+    return <Loading></Loading>
+  }
   return (
     <div className='max-w-7xl mx-auto py-12'>
 
@@ -145,7 +151,7 @@ description: event.target.description.value,
           role="dialog"
           aria-hidden={!isModalOpen}
         >
-          <div className="modal-box relative bg-green-200 my-8">
+          <div className="modal-box relative  my-8">
             <h2 className="font-bold text-lg">Update Service</h2>
             <form onSubmit={handleUpdate}>
               <div className="form-control">
@@ -215,7 +221,7 @@ description: event.target.description.value,
 
               
               <div className="modal-action">
-                <button type="submit" className="btn bg-green-900 text-white">
+                <button type="submit" className="btn bg-[#fb110d] text-white">
                   Save Changes
                 </button>
                 <button

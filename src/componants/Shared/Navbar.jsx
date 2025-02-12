@@ -44,7 +44,7 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 `py-2 px-3 rounded-md ${
-                  isActive ? ' bg-green-300' : 'bg-white'
+                  isActive ? ' bg-orange-300' : 'bg-white'
                 }`
               }
             >
@@ -54,7 +54,7 @@ const Navbar = () => {
               to="/services"
               className={({ isActive }) =>
                 `py-2 px-3 rounded-md ${
-                  isActive ? ' bg-green-300' : 'bg-white'
+                  isActive ? ' bg-orange-300' : 'bg-white'
                 }`
               }
             >
@@ -66,7 +66,7 @@ const Navbar = () => {
                   to="/addservice"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded-md ${
-                      isActive ? ' bg-green-300' : 'bg-white'
+                      isActive ? ' bg-orange-300' : 'bg-white'
                     }`
                   }
                 >
@@ -76,7 +76,7 @@ const Navbar = () => {
                   to="/myservices"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded-md ${
-                      isActive ? ' bg-green-300' : 'bg-white'
+                      isActive ? ' bg-orange-300' : 'bg-white'
                     }`
                   }
                 >
@@ -86,7 +86,7 @@ const Navbar = () => {
                   to="/myreviews"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded-md ${
-                      isActive ? ' bg-green-300' : 'bg-white'
+                      isActive ? ' bg-orange-300' : 'bg-white'
                     }`
                   }
                 >
@@ -129,37 +129,62 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden lg:flex gap-6">
-          <Link to="/" className="text-lg  p-2 hover:underline">
-            Home
-          </Link>
-          <Link
-            to="/services"
-            className="text-lg  p-2 hover:underline"
-          >
-            Services
-          </Link>
-          {user?.email && (
-            <>
-              <Link
-                to="/addservice"
-                className="text-lg  p-2 hover:underline"
-              >
-                Add Service
-              </Link>
-              <Link
-                to="/myservices"
-                className="text-lg  p-2 hover:underline"
-              >
-                My Services
-              </Link>
-              <Link
-                to="/myreviews"
-                className="text-lg  p-2 hover:underline"
-              >
-                My Reviews
-              </Link>
-            </>
-          )}
+        <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg  p-2 hover:underline ${
+                  isActive ? ' underline' : ''
+                }`
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                `text-lg  p-2 hover:underline ${
+                  isActive ? ' underline' : ''
+                }`
+              }
+              
+            >
+              Services
+            </NavLink>
+            {user?.email && (
+              <>
+                <NavLink
+                  to="/addservice"
+                  className={({ isActive }) =>
+                    `text-lg  p-2 hover:underline ${
+                      isActive ? ' underline' : ''
+                    }`
+                  }
+                >
+                  Add Service
+                </NavLink>
+                <NavLink
+                  to="/myservices"
+                  className={({ isActive }) =>
+                    `text-lg  p-2 hover:underline ${
+                      isActive ? ' underline' : ''
+                    }`
+                  }
+                >
+                  My Services
+                </NavLink>
+                <NavLink
+                  to="/myreviews"
+                  className={({ isActive }) =>
+                    `text-lg  p-2 hover:underline ${
+                      isActive ? ' underline' : ''
+                    }`
+                  }
+                >
+                  My Reviews
+                </NavLink>
+             
+              </>
+            )}
         </div>
 
         {/* User Profile */}

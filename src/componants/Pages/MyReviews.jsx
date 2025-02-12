@@ -1,27 +1,33 @@
-import React, { useContext, useEffect, useState } from 'react';
-import AuthContext from '../provider/AuthContext';
-import axios from 'axios';
-import Swal from 'sweetalert2';
-import toast from 'react-hot-toast';
-
+import React, { useContext, useEffect, useState } from "react";
+import AuthContext from "../provider/AuthContext";
+import axios from "axios";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import Loading from '../../componants/Shared/Loading'
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedReview, setSelectedReview] = useState(null);
+  const [loading , setLoading] = useState(true)
 
   useEffect(() => {
-   
     axios
       .get(`https://servewish-server.vercel.app/reviews?email=${user.email}`)
-      .then((response) => setReviews(response.data))
-      .catch(() => toast.error('Failed to load reviews'));
+      .then((response) => {
+        setReviews(response.data)
+        setLoading(false)
+      })
+        
+    
+     
   }, [user.email]);
 
   const openUpdateModal = (review) => {
     setSelectedReview(review);
     setModalOpen(true);
+  
   };
 
   const handleUpdate = (event) => {
@@ -30,154 +36,125 @@ const MyReviews = () => {
       reviewText: event.target.reviewText.value,
       rating: event.target.rating.value,
     };
-    
-    console.log('Updating review:', updatedReview);  // Debug log
-    
+
     axios
       .put(`https://servewish-server.vercel.app/review/${selectedReview._id}`, updatedReview)
       .then((response) => {
-        console.log('Update response:', response);  // Debug log
         if (response.data.modifiedCount > 0) {
-          toast.success('Review updated successfully!');
+          toast.success("Review updated successfully!");
           setReviews((prev) =>
             prev.map((review) =>
               review._id === selectedReview._id ? { ...review, ...updatedReview } : review
             )
           );
           setModalOpen(false);
-          setSelectedReview(null);
         } else {
-          toast.error('Failed to update the review');
+          toast.error("Failed to update the review");
         }
       })
-      .catch((error) => {
-        console.error('Update error:', error);  // Debug log
-        toast.error('An error occurred while updating the review');
-      });
+      .catch(() => toast.error("An error occurred while updating the review"));
   };
-  
+
   const handleDelete = (id) => {
-    console.log('Deleting review with id:', id);  
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "This action cannot be undone!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`https://servewish-server.vercel.app/review/${id}`)
-          .then((data) => {
-            console.log('Delete response:', data);  // Debug log
-            if (data.data.deletedCount > 0) {
-              toast.success('Review deleted successfully');
-              setReviews((prev) => prev.filter((review) => review._id !== id));
-            } else {
-              toast.error('Failed to delete the review');
-            }
-          })
-          .catch((error) => {
-            console.error('Delete error:', error);  // Debug log
-            toast.error('An error occurred while deleting the review');
-          });
+        axios.delete(`https://servewish-server.vercel.app/review/${id}`).then((data) => {
+          if (data.data.deletedCount > 0) {
+            toast.success("Review deleted successfully");
+            setReviews((prev) => prev.filter((review) => review._id !== id));
+          } else {
+            toast.error("Failed to delete the review");
+          }
+        });
       }
     });
   };
-
+  if(loading) {
+    return <Loading></Loading>
+  }
   return (
-    <div className="max-w-7xl mx-auto my-12">
-      
-      <h1 className="text-2xl font-bold mb-6 text-center">My Reviews</h1>
-      <div className="flex flex-col gap-4">
+    <div className="max-w-7xl mx-auto py-12 px-4">
+      <h1 className="text-3xl font-bold text-center mt-10 text-gray-800">My Reviews</h1>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {reviews.map((review) => (
-
-
-
-
-
-<div key={review._id} class="flex flex-col bg-green-300 shadow-sm border border-slate-200  py-6 w-10/12  mx-auto">
- 
-  <div class="p-2 text-center mt-4">
-    <h4 class="mb-1 text-2xl font-semibold text-slate-800 text-green-900">
-    {review.title}
-    </h4>
-    <p
-      class="text-sm font-semibold text-slate-500 uppercase">
-     Rating: {review.rating} ⭐
-    </p>
-    <p class="text-base text-slate-600 mt-4 font-light ">
-    {review.reviewText}
-    </p>
-  </div>
-  <div class="flex  justify-center p-6 pt-2 gap-7">
-    
-  <button onClick={() => openUpdateModal(review)} className="btn btn-xs bg-green-900 text-white border-none hover:bg-green-900">Update</button>
-  <button onClick={() => handleDelete(review._id)} className="btn btn-xs bg-green-900 text-white border-none hover:bg-green-900">Delete</button>
-
-     {/* <button onClick={() => openUpdateModal(review)}>
-              <FaEdit className='text-2xl text-green-900' />
-            </button>
-            <button onClick={() => handleDelete(review._id)} >
-              <MdDeleteForever className='text-2xl text-red-900' />
-            </button> */}
-    
-  </div>
-</div>
-          
+          <div
+            key={review._id}
+            className="bg-white/80 backdrop-blur-md shadow-lg border border-gray-200 p-6 rounded-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <h4 className="mb-2 text-xl font-semibold text-gray-900">{review.title}</h4>
+            <p className="text-sm text-gray-500 font-medium">⭐ Rating: {review.rating}</p>
+            <p className="text-gray-700 mt-3">{review.reviewText}</p>
+            <div className="flex justify-between mt-6">
+              <button
+                onClick={() => openUpdateModal(review)}
+                className="px-4 py-2 border-[#fb110d] border text-[#fb110d] rounded-md transition"
+              >
+                Update
+              </button>
+              <button
+                onClick={() => handleDelete(review._id)}
+                className="px-4 py-2 bg-[#fb110d] text-white rounded-md transition"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
         ))}
       </div>
 
       {isModalOpen && selectedReview && (
-        <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-          role="dialog"
-          aria-hidden={!isModalOpen}
-        >
-          <div className="modal-box relative">
-            <h2 className="font-bold text-lg">Update Review</h2>
-            <form onSubmit={handleUpdate}>
-              <div className="form-control">
-                <label className="label">Service Title</label>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl w-96">
+            <h2 className="text-lg font-bold">Update Review</h2>
+            <form onSubmit={handleUpdate} className="space-y-4">
+              <div>
+                <label className="block text-gray-700">Service Title</label>
                 <input
                   type="text"
                   name="serviceTitle"
                   defaultValue={selectedReview.title}
-                  className="input input-bordered"
+                  className="w-full px-3 py-2 border rounded-md bg-gray-100"
                   readOnly
                 />
               </div>
-              <div className="form-control">
-                <label className="label">Review Text</label>
+              <div>
+                <label className="block text-gray-700">Review Text</label>
                 <textarea
                   name="reviewText"
                   defaultValue={selectedReview.reviewText}
-                  className="textarea textarea-bordered"
+                  className="w-full px-3 py-2 border rounded-md bg-gray-100"
                   required
                 />
               </div>
-              <div className="form-control">
-                <label className="label">Rating</label>
+              <div>
+                <label className="block text-gray-700">Rating</label>
                 <input
                   type="number"
                   name="rating"
                   defaultValue={selectedReview.rating}
                   min="1"
                   max="5"
-                  className="input input-bordered"
+                  className="w-full px-3 py-2 border rounded-md bg-gray-100"
                   required
                 />
               </div>
-              <div className="modal-action">
-                <button type="submit" className="btn btn-primary">
+              <div className="flex justify-between">
+                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md">
                   Save Changes
                 </button>
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="btn"
+                  className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-md"
                 >
                   Cancel
                 </button>

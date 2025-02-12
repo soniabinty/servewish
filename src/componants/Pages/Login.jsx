@@ -51,11 +51,11 @@ const Login = () => {
       
   }
   return (
-    <div className="hero  min-h-screen">
+    <div className="hero  min-h-screen pt-12">
       
     <div className="hero-content flex-col text-center ">
-      <div className="text-center flex flex-col justify-center mb-4 ">
-         <div className='flex items-center text-center text-green-900 mx-auto'>
+      <div className="text-center flex flex-col justify-center  ">
+         <div className='flex items-center text-center text-[#fb110d] mx-auto'>
             <LiaServicestack className='text-2xl ' />
                    <h1 className="logo-name btn btn-ghost  text-xl p-0 ">ServeWISH
                    
@@ -68,7 +68,7 @@ const Login = () => {
         services with real user feedback to make informed decisions 
       </p>
       </div>
-      <div className="card  w-full max-w-lg  p-6">
+      <div className="card  w-full max-w-lg  px-6">
         
        <button onClick={handleGoogle} className="btn  border w-full"><span><FcGoogle className='text-2xl' /></span>Continue With Google</button>
 
@@ -93,7 +93,7 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn hover:bg-[#fb110d] bg-[#fb110d] text-white">Login</button>
           </div>
 
 

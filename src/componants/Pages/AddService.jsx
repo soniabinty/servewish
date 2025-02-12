@@ -3,7 +3,7 @@ import AuthContext from "../provider/AuthContext";
 import { useContext } from "react";
 import { LiaServicestack } from "react-icons/lia";
 import toast from "react-hot-toast";
-// import { Helmet } from "react-helmet-async";
+import img from '../../assets/service/standard-quality-control-concept-m.jpg'
 
 
 const AddService = () => {
@@ -60,15 +60,19 @@ const AddService = () => {
   };
 
   return (
-    <div>
+<div      className="relative w-full h-[700px]"
+          style={{
+            backgroundImage: `url('${img}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}>
+
+<div className="absolute inset-0 bg-black bg-opacity-70 px-2 mt-12  text-white  ">
       {/* <Helmet>
         <title>ServeWISH-add service</title>
       </Helmet> */}
-      <div className="text-center flex flex-col justify-center mb-4">
-        <div className="flex items-center text-center text-green-900 mx-auto">
-          <LiaServicestack className="text-2xl" />
-          <h1 className="logo-name btn btn-ghost text-xl p-0">ServeWISH</h1>
-        </div>
+      <div className="text-center justify-center mt-8 ">
+        
         <h1 className="text-3xl font-bold">Add a service</h1>
         <p className="">
           Explore, review, and discover trusted
@@ -76,19 +80,19 @@ const AddService = () => {
           services with real user feedback to make informed decisions
         </p>
       </div>
-      <div className="max-w-4xl mx-auto p-8 bg-gradient-to-l from-green-300 to-green-600 shadow-lg rounded-lg my-8">
-        <form onSubmit={handleAddService} className="card-body">
-          <div className="md:grid grid-cols-2 gap-4">
+      <div className=" mx-auto  shadow-lg rounded-lg ">
+        <form onSubmit={handleAddService} className="card-body text-white">
+          <div className="md:grid grid-cols-3 gap-4">
             {/* Title */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Service Title</span>
+                <span className="label-text text-white">Service Title</span>
               </label>
               <input
                 type="text"
                 name="title"
                 placeholder="Service Title"
-                className="input input-bordered"
+                className="input input-bordered bg-gray-700 text-white"
                 required
               />
             </div>
@@ -96,13 +100,13 @@ const AddService = () => {
             {/* Company */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Company Name</span>
+                <span className="label-text text-white">Company Name</span>
               </label>
               <input
                 type="text"
                 name="company"
                 placeholder="Company Name"
-                className="input input-bordered"
+                className="input input-bordered bg-gray-700"
                 required
               />
             </div>
@@ -110,13 +114,13 @@ const AddService = () => {
             {/* Website */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Website</span>
+                <span className="label-text text-white">Website</span>
               </label>
               <input
                 type="url"
                 name="website"
                 placeholder="Website"
-                className="input input-bordered"
+                className="input input-bordered bg-gray-700"
                 required
               />
             </div>
@@ -124,11 +128,11 @@ const AddService = () => {
             {/* Category */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Category</span>
+                <span className="label-text text-white">Category</span>
               </label>
               <select
                 name="category"
-                className="select select-bordered"
+                className="select select-bordered bg-gray-700"
                 required
               >
                 <option value="" disabled selected>
@@ -145,13 +149,13 @@ const AddService = () => {
             {/* Price */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Price</span>
+                <span className="label-text text-white">Price</span>
               </label>
               <input
                 type="number"
                 name="price"
                 placeholder="Price"
-                className="input input-bordered"
+                className="input input-bordered bg-gray-700"
                 required
               />
             </div>
@@ -159,13 +163,13 @@ const AddService = () => {
             {/* Image */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Service Image</span>
+                <span className="label-text text-white">Service Image</span>
               </label>
               <input
                 type="url"
                 name="image"
                 placeholder="Service Image URL"
-                className="input input-bordered"
+                className="input input-bordered bg-gray-700"
                 required
               />
             </div>
@@ -178,7 +182,7 @@ const AddService = () => {
             </label>
             <textarea
               name="description"
-              className="w-full border rounded-lg p-2"
+              className="w-full border rounded-lg p-2 bg-gray-700"
               rows="4"
               placeholder="Enter Service Description"
               required
@@ -186,11 +190,13 @@ const AddService = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn bg-green-900 text-white">Submit</button>
+            <button className="btn bg-[#fb110d] hover:bg-[#fb110d] text-white">Submit</button>
           </div>
         </form>
       </div>
     </div>
+
+</div>
   );
 };
 

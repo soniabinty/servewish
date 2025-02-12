@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Count from '../componant/Count';
 import Features from '../componant/Features';
 ;
@@ -10,6 +10,7 @@ import NewReview from '../componant/NewReview';
 
 
 const Home = () => {
+
   return (
     <div >
      <Banner></Banner>
