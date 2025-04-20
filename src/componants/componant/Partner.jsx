@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 import { FcAutomotive, FcCloseUpMode, FcHome, FcPlus, FcServices, FcShipped } from 'react-icons/fc';
 const Partner = () => {
   return (
-<div className='mx-12'>
+<div className='mx-4 md:mx-6 lg:mx-12'>
 <h1 className='text-center   md:text-4xl font-bold text-xl text-[#fb110d] md:mb-7 my-8 mb-6'>Meet Our Partners</h1>
      
 <Marquee>

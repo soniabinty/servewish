@@ -16,7 +16,7 @@ const Banner = () => {
 
   const handleType = (count) => {
     // access word count number
-    console.log(count)}
+   }
   
 
   const handleDone = () => {
@@ -38,18 +38,18 @@ const Banner = () => {
         
         <SwiperSlide>
           <div
-            className="relative w-full h-[660px]"
+             className="relative h-[440px] w-full md:h-[660px] "
             style={{
               backgroundImage: `url('${img1}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-70 flex  justify-center  items-center text-white p-4 space-y-6 ">
+              <div className="absolute inset-0 bg-black bg-opacity-70 md:flex  justify-center  items-center text-white p-4 lg:p-4 md:space-y-6 ">
 
-<div className="flex-1 pl-8 space-y-6">  
+              <div className="flex-1 md:pl-0 lg:pl-8 md:space-y-6">  
          
-          <h1 className="md:text-6xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+          <h1 className="md:text-6xl text-2xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
           Transform your space with{' '}
         <span className="text-[#fb110d]" style={{  fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}
@@ -100,18 +100,18 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="relative w-full h-[660px]"
+          className="relative h-[440px] w-full md:h-[660px] "
             style={{
               backgroundImage: `url('${img2}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-70 flex  justify-center  items-center text-white p-4 space-y-6 ">
+              <div className="absolute inset-0 bg-black bg-opacity-70 md:flex  justify-center  items-center text-white p-4 md:space-y-6 ">
 
-<div className="flex-1 pl-8 space-y-6">  
+            <div className="flex-1 md:pl-8 md:space-y-6">  
          
-          <h1 className="md:text-6xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+          <h1 className="md:text-6xl text-2xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
           Reliable Home Repairs & 
 {' '}
         <span className="text-[#fb110d]" style={{  fontWeight: 'bold' }}>
@@ -162,18 +162,17 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="relative w-full h-[660px]"
+           className="relative h-[440px] w-full md:h-[660px] "
             style={{
               backgroundImage: `url('${img3}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-70 flex  justify-center  items-center text-white p-4 space-y-6 ">
-
-<div className="flex-1 pl-8 space-y-6">  
+              <div className="absolute inset-0 bg-black bg-opacity-70 md:flex  justify-center  items-center text-white p-4 md:space-y-6 ">
+            <div className="flex-1 md:pl-8 md:space-y-6">    
          
-          <h1 className="md:text-6xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+          <h1 className="md:text-6xl text-2xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
           Home Visits by Experienced 
 {' '}
         <span className="text-[#fb110d]" style={{  fontWeight: 'bold' }}>
@@ -226,18 +225,18 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="relative w-full h-[660px]"
+            className="relative h-[440px] w-full md:h-[660px] "
             style={{
               backgroundImage: `url('${img4}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-70 flex  justify-center  items-center text-white p-4 space-y-6 ">
+            <div className="absolute inset-0 bg-black bg-opacity-70 md:flex  justify-center  items-center text-white p-4 md:space-y-6 ">
 
-<div className="flex-1 pl-8 space-y-6">  
+<div className="flex-1 md:pl-8 md:space-y-6">  
          
-          <h1 className="md:text-6xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+          <h1 className="md:text-6xl text-2xl heading font-extrabold"  style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
           Restaurant-Quality Meals at 
 {' '}
         <span className="text-[#fb110d]" style={{  fontWeight: 'bold' }}>

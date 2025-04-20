@@ -112,7 +112,7 @@ const MyReviews = () => {
       </div>
 
       {isModalOpen && selectedReview && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-md z-50">
+        <div className="fixed inset-0 flex items-center justify-center p-2 md:p-0 bg-black/50 backdrop-blur-md z-50">
           <div className="bg-white p-6 rounded-lg shadow-xl w-96">
             <h2 className="text-lg font-bold">Update Review</h2>
             <form onSubmit={handleUpdate} className="space-y-4">
@@ -148,7 +148,7 @@ const MyReviews = () => {
                 />
               </div>
               <div className="flex justify-between">
-                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md">
+                <button type="submit" className="px-4 py-2 bg-[#fb110d] text-white rounded-md">
                   Save Changes
                 </button>
                 <button

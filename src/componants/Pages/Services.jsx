@@ -55,10 +55,10 @@ const Services = () => {
   }
 
   return (
-    <div className="max-w-7xl py-12 mx-auto">
+    <div className="max-w-7xl px-4 lg:pt-10 py-12 mx-auto">
       {/* Search Input */}
 
-      <div className='flex gap-4 justify-between items-start pt-8'>
+      <div className='md:flex gap-4 justify-between items-start pt-8'>
         <div className="my-4 w-80">
         <input
           type="text"
@@ -90,7 +90,7 @@ const Services = () => {
       </div>
      
       {/* Service Cards */}
-      <div className="md:grid grid-cols-4 gap-2">
+      <div className="md:grid  lg:grid-cols-4 md:grid-cols-3 gap-3 space-y-6 md:space-y-0">
         {services.length > 0 ? (
           services.map((service) => (
             <ServiceCard service={service} key={service._id} />

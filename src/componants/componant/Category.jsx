@@ -24,14 +24,14 @@ const Category = () => {
 
   return (
 
-    <div className='bg-yellow-100 p-12 text-center my-10'>
-      <h2 className='text-4xl font-bold text-[#fb110d] mb-10 '>Explore Services By Category</h2>
-     <div className="grid grid-cols-5  gap-12">
+    <div className='bg-yellow-100 p-4 md:p-6 lg:px-12 text-center my-10'>
+      <h2 className='md:text-4xl text-2xl px-4 md:px-0  font-bold text-[#fb110d] mb-10 '>Explore Services By Category</h2>
+     <div className="md:grid  grid-cols-5 md:gap-6  lg:gap-12 max-sm:space-y-5">
       {categories.map((category, index) => (
         <div
           key={index}
           onClick={() => handleCategoryClick(category.title)}
-          className="cursor-pointer rounded-lg border-t-4 border-[#fb110d] bg-white text-center shadow-md py-6 transition-transform transform hover:scale-105"
+          className="cursor-pointer rounded-lg border-t-4 border-[#fb110d] bg-white text-center shadow-md py-6 transition-transform transform hover:scale-105 flex flex-col grow"
         >
           <img className="w-24 mx-auto" src={category.img} alt={category.title} />
           <h4 className="font-bold px-2">{category.title}</h4>

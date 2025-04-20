@@ -13,8 +13,8 @@ const NewReview = () => {
   }, []);
 
   return (
-    <div className="mx-12">
-      <h4 className='text-[#fb110d] text-4xl font-bold text-center my-3'>Recents Reviews</h4>
+    <div className="md:mx-6 lg:mx-12 mx-4">
+      <h4 className='text-[#fb110d] md:text-4xl text-2xl font-bold text-center my-3'>Recents Reviews</h4>
       <div className="md:grid grid-cols-4 gap-6">
         {reviews.map((review) => (
           <div

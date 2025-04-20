@@ -98,7 +98,7 @@ description: event.target.description.value,
     return <Loading></Loading>
   }
   return (
-    <div className='max-w-7xl mx-auto py-12'>
+    <div className='max-w-7xl px-4 mx-auto py-12'>
 
 <div className="my-8">
         <input

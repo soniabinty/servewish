@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
 import { LiaServicestack } from 'react-icons/lia';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import AuthContext from '../provider/AuthContext';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const navigate = useNavigate()
+const handleLogout = () =>{
+  logOut()
+  navigate('/login')
+}
   return (
-    <div className="navbar fixed z-10   bg-[#fb110d] text-white px-8 flex justify-between w-full mx-auto">
+    <div className="navbar fixed z-10   bg-[#fb110d] text-white px-3 md:px-4 lg:px-8 flex justify-between w-full mx-auto">
       {/* Logo Section */}
       <div className="flex text-white items-center">
         <LiaServicestack className="text-3xl " />
@@ -93,8 +97,8 @@ const Navbar = () => {
                   My Reviews
                 </NavLink>
                 <button
-                  onClick={logOut}
-                  className="py-2 px-3 rounded-md bg-white"
+                  onClick={handleLogout}
+                  className="py-2 px-3 text-start rounded-md bg-white"
                 >
                   LogOut
                 </button>
@@ -106,7 +110,7 @@ const Navbar = () => {
                   to="/register"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded-md ${
-                      isActive ? ' bg-green-300' : 'bg-white'
+                      isActive ? ' bg-orange-300' : 'bg-white'
                     }`
                   }
                 >
@@ -116,7 +120,7 @@ const Navbar = () => {
                   to="/login"
                   className={({ isActive }) =>
                     `py-2 px-3 rounded-md ${
-                      isActive ? ' bg-green-300' : 'bg-white'
+                      isActive ? ' bg-orange-300' : 'bg-white'
                     }`
                   }
                 >
@@ -204,7 +208,7 @@ const Navbar = () => {
         </div>
         {user?.email ? (
           <button
-            onClick={logOut}
+            onClick={handleLogout}
             className="hidden lg:block text-lg bg-white rounded-md text-gray-700 px-4 py-2"
           >
             LogOut

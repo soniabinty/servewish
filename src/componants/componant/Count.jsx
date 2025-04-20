@@ -34,7 +34,7 @@ const Count = () => {
 
   return (
    <div>
-     <div className='md:flex justify-between mx-12  bg-yellow-100 text-black  md:px-[160px] py-10 my-14  rounded-lg'>
+     <div className='md:flex justify-between items-center md:mx-6 lg:mx-12 mx-4 max-sm:space-y-4  bg-yellow-100 text-black  md:px-[160px] py-10 my-14  rounded-lg'>
 
 <div className='text-center  space-y-2'>
 

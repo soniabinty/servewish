@@ -26,11 +26,11 @@ if(loading) {
 }
 
   return (
-   <div>
+   <div className=''>
     
-    <h1 className='text-center md:text-4xl text-xl font-bold text-[#fb110d]'>Feature Services</h1>
-      <p className='text-center '>We are Always with you. Get our Feature collection.</p>
-     <div className='md:grid grid-cols-4 gap-2 p-3n md:px-12'>
+    <h1 className='text-center md:text-4xl text-2xl font-bold text-[#fb110d]'>Feature Services</h1>
+      <p className='text-center px-2 md:px-0 '>We are Always with you. Get our Feature collection.</p>
+     <div className='md:grid lg:grid-cols-4 md:grid-cols-3 gap-2 p-3 md:px-6 lg:px-12'>
 
 {
   features.map((feature =>(

@@ -60,17 +60,17 @@ const AddService = () => {
   };
 
   return (
-<div      className="relative w-full h-[700px]"
+<div      className="relative w-full md:h-[700px] h-[950px] mb-12  "
           style={{
             backgroundImage: `url('${img}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}>
 
-<div className="absolute inset-0 bg-black bg-opacity-70 px-2 mt-12  text-white  ">
+<div className="absolute inset-0 bg-black bg-opacity-70 px-2 mt-12 h-full  text-white  ">
       {/* <Helmet>
         <title>ServeWISH-add service</title>
-      </Helmet> */}
+      </Helmet> */} 
       <div className="text-center justify-center mt-8 ">
         
         <h1 className="text-3xl font-bold">Add a service</h1>
