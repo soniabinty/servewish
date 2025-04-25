@@ -88,11 +88,13 @@ const MyReviews = () => {
         {reviews.map((review) => (
           <div
             key={review._id}
-            className="bg-white/80 backdrop-blur-md shadow-lg border border-gray-200 p-6 rounded-lg hover:shadow-xl transition-shadow duration-300"
+            className="bg-white/80 backdrop-blur-md shadow-lg border border-gray-200 p-6 rounded-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
           >
-            <h4 className="mb-2 text-xl font-semibold text-gray-900">{review.title}</h4>
+          <div className="flex-grow">
+          <h4 className="mb-2 text-xl font-semibold text-gray-900">{review.title}</h4>
             <p className="text-sm text-gray-500 font-medium">⭐ Rating: {review.rating}</p>
             <p className="text-gray-700 mt-3">{review.reviewText}</p>
+          </div>
             <div className="flex justify-between mt-6">
               <button
                 onClick={() => openUpdateModal(review)}
@@ -112,8 +114,8 @@ const MyReviews = () => {
       </div>
 
       {isModalOpen && selectedReview && (
-        <div className="fixed inset-0 flex items-center justify-center p-2 md:p-0 bg-black/50 backdrop-blur-md z-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl w-96">
+        <div className="fixed inset-0 flex items-center justify-center  md:p-0 bg-black/50 backdrop-blur-md z-50">
+          <div className="bg-white p-4 md:p-6 rounded-lg shadow-xl w-96">
             <h2 className="text-lg font-bold">Update Review</h2>
             <form onSubmit={handleUpdate} className="space-y-4">
               <div>

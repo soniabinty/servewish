@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ServiceCard from '../componant/ServiceCard';
 import Loading from '../../componants/Shared/Loading'
+import toast from 'react-hot-toast';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -32,7 +33,7 @@ const Services = () => {
         setServices(response.data);
         setLoading(false)
       } catch (error) {
-        console.error('Error fetching services:', error);
+        toast.error('Error fetching services:', error);
       }
     };
 

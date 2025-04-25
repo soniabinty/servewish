@@ -1,11 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { LiaServicestack } from 'react-icons/lia';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import AuthContext from '../provider/AuthContext';
+import { FaSun } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate()
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+ 
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme); // Persist theme to localStorage
+  }, [theme]);
+
+  // Toggle theme function
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
 const handleLogout = () =>{
   logOut()
   navigate('/login')
@@ -22,6 +37,17 @@ const handleLogout = () =>{
 
       {/* Navigation Links */}
       <div className="flex items-center gap-4">
+      <button
+                onClick={toggleTheme}
+                className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all"
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? (
+                  <FaSun className="text-yellow-300" />
+                ) : (
+                  <FaMoon className="text-gray-800" />
+                )}
+              </button>
         {/* Mobile Dropdown */}
         <div className="dropdown text-white z-50 lg:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost">
@@ -44,6 +70,7 @@ const handleLogout = () =>{
             tabIndex={0}
             className="menu right-0 text-black menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow"
           >
+            
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -133,6 +160,7 @@ const handleLogout = () =>{
 
         {/* Desktop Links */}
         <div className="hidden lg:flex gap-6">
+        
         <NavLink
               to="/"
               className={({ isActive }) =>
@@ -186,10 +214,12 @@ const handleLogout = () =>{
                 >
                   My Reviews
                 </NavLink>
+               
              
               </>
             )}
         </div>
+      
 
         {/* User Profile */}
         <div className="relative group flex items-center">
