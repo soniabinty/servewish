@@ -4,6 +4,7 @@ import { Rating } from "@smastrom/react-rating";
 import { useLoaderData } from "react-router-dom";
 import AuthContext from "../provider/AuthContext";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const ReviewInput = ({reviews , setReviews}) => {
   const [rating, setRating] = useState(0);
@@ -35,16 +36,16 @@ const ReviewInput = ({reviews , setReviews}) => {
   axios.post('https://servewish-server.vercel.app/review', newReview)
   .then(data =>{
    
-    console.log(data.data)
+   
 setReviews(prev =>{
   return [...prev , newReview]
 
 })
      setRating(0);
     setReviewText("");
-    alert("Review submitted successfully!");
+    
 
-
+toast.success("Review submitted successfully!")
  
   })
    

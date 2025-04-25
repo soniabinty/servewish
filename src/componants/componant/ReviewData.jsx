@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ReviewBox from './ReviewBox';
+import Loading from '../Shared/Loading';
 
 
 
 
 const ReviewData = ({serviceId , reviews , setReviews}) => {
+
+  const [loading , setLoading] = useState(true)
 
 
 
@@ -18,9 +21,14 @@ const ReviewData = ({serviceId , reviews , setReviews}) => {
         .get(`https://servewish-server.vercel.app/review/${serviceId}`)
         .then((response) => {
           setReviews(response.data);
+          setLoading(false)
         })  
     }
   }, [serviceId]);
+  if(loading) {
+    return <Loading></Loading>
+  }
+  
 
   return (
     <div className='my-10'>
